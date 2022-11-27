@@ -1,10 +1,15 @@
+import { fetchCharectersApi } from './../features/rickAndMorty/charecterAPI';
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import charecterReducer from './../features/rickAndMorty/charecterSlice';
+
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    [fetchCharectersApi.reducerPath]: fetchCharectersApi.reducer,
+    charecters: charecterReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(fetchCharectersApi.middleware),
+
 });
 
 export type AppDispatch = typeof store.dispatch;
