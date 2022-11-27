@@ -1,4 +1,4 @@
-import { CharecterType, CharectersApiResponseType } from './types';
+import { CharectersApiResponseType } from './types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 // Defining a service using a base URL and expected endpoints
