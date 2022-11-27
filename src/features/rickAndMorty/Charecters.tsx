@@ -24,7 +24,7 @@ export default function Charecters() {
 
   return (
     <>
-      <div>Charecters</div>
+      {/* <div>Charecters</div> */}
       <div className={styles.charecterContainer}>
         {
           allCharecters

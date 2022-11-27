@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.characterGrid {
+  height: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(3,minmax(345px,1fr));
+  gap: .875rem;
+}
+
+.cardClip {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 999;
+}
