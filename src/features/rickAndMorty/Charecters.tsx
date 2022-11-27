@@ -16,8 +16,8 @@ export default function Charecters() {
           <img src={charecter.image} alt={charecter.name} />
         </div>
         <h4 >{charecter.name}</h4>
-        <p>Last Location: <br/><span>{charecter.location.name}</span> </p>
-        
+        <p>Last Location: <br /><span>{charecter.location.name}</span> </p>
+
       </div>
     )
   })
