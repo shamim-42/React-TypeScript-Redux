@@ -1,0 +1,24 @@
+.charecterContainer{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 1rem 2rem;
+    border: 1px solid rgba(3, 3, 3, 0.01);
+    box-shadow: 3px 0 8px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.singleCharecter{
+    padding: 10px;
+    margin: .4rem;
+    /* border: 1px solid rgba(0,0,0,0.09); */
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    width: 250px;
+    /* height: 350px */
+}
+
+.imageHolder{
+    position: relative;
+    width: 100%;
+    height: 280px;
+}
