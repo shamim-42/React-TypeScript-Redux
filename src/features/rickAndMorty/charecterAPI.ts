@@ -15,26 +15,3 @@ export const fetchCharectersApi = createApi({
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
 export const { useFetchCharectersQuery } = fetchCharectersApi
-
-
-
-
-////////////////////////////////////////////
-
-
-
-// A mock function to mimic making an async request for data
-export function fetchCount(amount = 1) {
-    return new Promise<{ data: number }>((resolve) =>
-        setTimeout(() => resolve({ data: amount }), 500)
-    );
-}
-
-// A mock function to mimic making an async request for data
-export function fetchCharechers(url = "https://rickandmortyapi.com/api/character", page = 1) {
-    const ApiEndpoint = url + "?page=" + page;
-    return new Promise<{ data: number }>((resolve) =>
-        setTimeout(() => resolve({ data: 10 }), 500)
-    );
-}
-
