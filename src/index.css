@@ -26,3 +26,9 @@ code {
   right: 8px;
   z-index: 999;
 }
+
+.paginationWrapper {
+  display:grid;
+  place-items: center;
+  margin-top:1.5rem;
+}

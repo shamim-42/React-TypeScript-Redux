@@ -1,7 +1,12 @@
 import { CharecterType } from './types';
-import { createSlice } from '@reduxjs/toolkit';
-
-
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+const enum ApiStatus {
+    IDLE = "idle",
+    LOADING = "loading",
+    SUCCEEDED = "successed",
+    FAILED = "failed",
+}
 
 export const enum FilterCharecterBy {
     DEAD = 'dead',
@@ -11,20 +16,45 @@ export const enum FilterCharecterBy {
 export interface CharecterState {
     darkMood: boolean;
     filterCharacterBy: FilterCharecterBy; 
-    status: 'idle' | 'loading' | 'failed';
+    status: ApiStatus;
     totalCharecterCount: number;
     allCharecters: CharecterType[];
+    currentPage: number;
+    searchKeyword: string,
 }
+
+
+
+export interface CharacterQueryParams {
+    page: number;
+    search: string;
+    filterBy: string;
+}
+
+// export const fetchAllCharecters = createAsyncThunk('character/fetchCharacter', (params: CharacterQueryParams) => {
+//     let characterUrl = "https://rickandmortyapi.com/api/character/";
+
+//     if(params.page) characterUrl += `?page=${params.page}` 
+//     if(params.filterBy) characterUrl += `?page=${params.page}` 
+    
+
+    
+//     try {
+
+//     } catch (err) {
+//         return err.message;
+//     }
+// })
 
 const initialState: CharecterState = {
     darkMood: false,
     filterCharacterBy: FilterCharecterBy.ALIVE,
-    status: 'idle',
+    status: ApiStatus.IDLE,
     totalCharecterCount: 0,
+    currentPage: 1,
+    searchKeyword: "",
     allCharecters: [],
 };
-
-
 export const charecterSlice = createSlice({
     name: 'charecters',
     initialState,
@@ -35,6 +65,12 @@ export const charecterSlice = createSlice({
         },
         filterCharacterBy: (state, action) => {
             state.filterCharacterBy = action.payload;
+        },
+        changePage: (state, action) => {
+            state.currentPage = action.payload
+        },
+        changeSearchKeyword: (state, action) => {
+            state.searchKeyword = action.payload
         }
     }
 });
@@ -42,11 +78,15 @@ export const charecterSlice = createSlice({
 
 export const {
     toggleDarkMood,
-    filterCharacterBy
+    filterCharacterBy,
+    changePage,
+    changeSearchKeyword
  } = charecterSlice.actions
   
   export const getDarkMood = (state: { charecters: CharecterState }) => state.charecters.darkMood
   export const getFilterCharacterBy = (state: { charecters: CharecterState }) => state.charecters.filterCharacterBy
+  export const getCurrentPage = (state: { charecters: CharecterState }) => state.charecters.currentPage
+  export const getSearchKeyword = (state: { charecters: CharecterState }) => state.charecters.searchKeyword
 
 
 

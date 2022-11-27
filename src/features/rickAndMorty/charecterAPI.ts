@@ -4,10 +4,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // Defining a service using a base URL and expected endpoints
 export const fetchCharectersApi = createApi({
     reducerPath: 'fetchCharectersApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://rickandmortyapi.com/api/' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://rickandmortyapi.com/api/character' }),
     endpoints: (builder) => ({
         fetchCharecters: builder.query<CharectersApiResponseType, string>({
-            query: (page) => `character?page=${page}`,
+            query: (params) => `?${params}`,
         }),
     }),
 })
